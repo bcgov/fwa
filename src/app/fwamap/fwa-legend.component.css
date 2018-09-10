@@ -5,11 +5,3 @@
 .legend-higlighted-stream {stroke:Aqua;stroke-width:3}
 .legend-higlighted-stream-upstream {stroke:Lime;stroke-width:3}
 .legend-higlighted-stream-downstream {stroke:Red;stroke-width:3}
-
-.legend-ems-station {fill:LightYellow;stroke:black}
-.legend-selected-ems-station {fill:DarkTurquoise;stroke:black}
-.legend-selected-ems-station-upstream {fill:LimeGreen;stroke:black}
-.legend-selected-ems-station-downstream {fill:FireBrick;stroke:black}
-.legend-higlighted-ems-station {fill:Aqua;stroke:black}
-.legend-higlighted-ems-station-upstream {fill:Lime;stroke:black}
-.legend-higlighted-ems-station-downstream {fill:Red;stroke:black}

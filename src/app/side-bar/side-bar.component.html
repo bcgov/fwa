@@ -1,104 +1,76 @@
-<mat-tab-group>
+<mat-tab-group #tabs>
   <mat-tab #tabHelp>
-    <ng-template mat-tab-label><i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i> Help</ng-template>
-    <p>Click on a stream to view upstream/downstream info</p>
+    <ng-template mat-tab-label>Help <mat-icon>help</mat-icon></ng-template>
+    <mat-card>
+      <mat-card-title>Upstream/Downstream</mat-card-title>
+      <mat-card-content>
+        <p>Using the map hover over a stream.</p>
+        <p>The stream will be highlighted in blue. Upstream streams will be highlighted in green
+        and downstream in red.</p>
+        <p>As you zoom in more detailed streams will become visible.</p>
+        <p>Clicking a stream will display the stream information in the side panel and change the
+        selected streams to be shown using thicker lines.</p>
+        <p><b>NOTE:</b> double clicking to zoom will clear the selected stream, mouse wheel zooming
+        will retain the selected stream.</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Search</mat-card-title>
+      <mat-card-content>
+        <ol>
+          <li>Click the search tab.</li>
+          <li>Enter the search term to show the list of matches.</li>
+          <li>Select the match from the list</li>
+          <li>Click the <mat-icon>search</mat-icon> icon in the search field to zoom the map to the items location</li>
+        </ol>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+  <mat-tab #tabHelp>
+    <ng-template mat-tab-label>Search <mat-icon>search</mat-icon></ng-template>
+    <mat-card class="fields">
+      <mat-card-content>
+        <app-geographic-name-search></app-geographic-name-search>
+      </mat-card-content>
+    </mat-card>
   </mat-tab>
   <mat-tab [disabled]="!river" #tabRiver>
     <ng-template mat-tab-label>Stream</ng-template>
-    <div *ngIf="river" id="riverTabContent">
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-          <caption>Stream</caption>
-          <tr>
-            <th>Id</th>
-            <td>{{river.properties.LINEAR_FEATURE_ID}}</td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td>{{river.properties.GNIS_NAME}}</td>
-          </tr>
-          <tr>
-            <th>Watershed Code</th>
-            <td>{{river.properties.codeRange.code}}</td>
-          </tr>
-          <tr>
-            <th>Local Code</th>
-            <td>{{river.properties.codeRange.toStringLocal()}}</td>
-          </tr>
-          <tr *ngIf="river.properties.LENGTH_METRE">
-            <th>Segment length</th>
-            <td class="number">{{km(river.properties.LENGTH_METRE)}}</td>
-          </tr>
-          <tr *ngIf="river.properties.UPSTREAM_LENGTH">
-            <th>Upstream Length</th>
-            <td class="number">{{km(river.properties.UPSTREAM_LENGTH)}}</td>
-          </tr>
-          <tr *ngIf="river.properties.DOWNSTREAM_LENGTH">
-            <th>Downstream Length</th>
-            <td class="number">{{km(river.properties.DOWNSTREAM_LENGTH)}}</td>
-          </tr>
-        </table>
-      </div>
-      <div *ngIf="emsLocations.stationCount() > 0" class="table-responsive">
-        <table class="table table-bordered table-striped table-condensed">
-          <caption>EMS Stations <span class="badge">{{emsLocations.stationCount()}}</span></caption>
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>&nbsp;</th>
-            <th>Name</th>
-          </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let emsStationId of emsLocations.stationIds()" [ngClass]="{'onStream': emsLocations.onStream(emsStationId), 'downstream': emsLocations.downstream(emsStationId) }">
-              <td>{{emsStationId}}</td>
-              <td><a
-                href="https://a100.gov.bc.ca/ext/ems/dataResultsCriteria.do?bean.p_ems_id={{emsStationId}}"
-                target="_report"
-                class="btn btn-primary btn-xs"
-                role="button"
-                title="Data Results"
-              ><i class="fa fa-table"></i></a></td>
-              <td>{{emsStationName(emsStationId)}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </mat-tab>
-  <mat-tab [disabled]="!emsStation" #tabEmsStation>
-    <ng-template mat-tab-label>EmsStation</ng-template>
-    <div *ngIf="emsStation">
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>ID</th>
-            <td>{{emsStation['properties']['MONITORING_LOCATION_ID']}}</td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td>{{emsStation['properties']['MONITORING_LOCATION_NAME']}}</td>
-          </tr>
-          <tr>
-            <th>Watershed Code</th>
-            <td>{{emsStationWatershedCode(emsStationId)}}</td>
-          </tr>
-          <tr>
-            <th>Local Watershed Code</th>
-            <td>{{emsStationLocalWatershedCode(emsStationId)}}</td>
-          </tr>
-          <tr>
-            <th>Actions</th>
-            <td><a
-      href="https://a100.gov.bc.ca/ext/ems/dataResultsCriteria.do?bean.p_ems_id={{emsStation['properties']['MONITORING_LOCATION_ID']}}"
-      target="_report"
-      class="btn btn-primary btn-xs"
-      role="button"
-      title="Data Results"
-    ><i class="fa fa-table"></i></a></td>
-          </tr>
-        </table>
-      </div>
+    
+    <div *ngIf="river">
+    <mat-card class="fields">
+      <mat-card-content>
+					<mat-form-field floatLabel="always">
+	          <mat-label>ID</mat-label>
+					  <input matInput value="{{river.properties.LINEAR_FEATURE_ID}}" readonly />
+					</mat-form-field>
+					<mat-form-field floatLabel="always">
+	          <mat-label>Name</mat-label>
+					  <input matInput value="{{river.properties.GNIS_NAME}}" readonly />
+					</mat-form-field>
+					<mat-form-field floatLabel="always">
+	          <mat-label>Watershed Code</mat-label>
+					  <input matInput value="{{river.properties.codeRange.code}}" readonly />
+					</mat-form-field>
+	<!-- 				<mat-form-field floatLabel="always">
+	          <mat-label>Local Code</mat-label>
+					  <input matInput value="{{river.properties.codeRange.toStringLocal()}}" readonly />
+					</mat-form-field>
+	 -->
+	 				<mat-form-field floatLabel="always" *ngIf="river.properties.LENGTH_METRE">
+	          <mat-label>Segment length</mat-label>
+					  <input matInput value="{{km(river.properties.LENGTH_METRE)}}" readonly />
+					</mat-form-field>
+					<mat-form-field floatLabel="always" *ngIf="river.properties.UPSTREAM_LENGTH">
+	          <mat-label>Upstream Length</mat-label>
+					  <input matInput value="{{km(river.properties.UPSTREAM_LENGTH)}}" readonly />
+					</mat-form-field>
+					<mat-form-field floatLabel="always" *ngIf="river.properties.DOWNSTREAM_LENGTH">
+	          <mat-label>Downstream Length</mat-label>
+					  <input matInput value="{{km(river.properties.DOWNSTREAM_LENGTH)}}" readonly />
+					</mat-form-field>
+        </mat-card-content>
+      </mat-card>
     </div>
   </mat-tab>
 </mat-tab-group>

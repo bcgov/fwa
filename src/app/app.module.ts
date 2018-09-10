@@ -13,7 +13,6 @@ import {RevolsysAngularBcgovPageModule} from 'revolsys-angular-bcgov-page';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {GeographicNameSearchComponent} from './geographic-name-search.component';
-import {EmsStationService} from './ems-station.service';
 import {RiverService} from './river.service';
 import {FwaMapComponent} from './fwamap/fwa-map.component';
 import {FwaLegendComponent} from './fwamap/fwa-legend.component';
@@ -24,6 +23,11 @@ import {
 } from 'revolsys-angular-leaflet';
 import {LayoutComponent} from './layout/layout.component';
 import {SideBarComponent} from './side-bar/side-bar.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -43,10 +47,16 @@ import {SideBarComponent} from './side-bar/side-bar.component';
 
     AppRoutingModule,
 
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
     MatTabsModule,
+
     RevolsysAngularBcgovPageModule.forRoot({
       basePath: '/',
-      title: 'FWA Streams and EMS Stations',
+      title: 'FWA Streams',
       fullWidthContent: true
     }),
     RevolsysAngularLeafletModule
@@ -54,7 +64,6 @@ import {SideBarComponent} from './side-bar/side-bar.component';
   ],
   providers: [
     MapService,
-    EmsStationService,
     GnisNameService,
     RiverService
   ],

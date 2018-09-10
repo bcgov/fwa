@@ -18,7 +18,19 @@ import {
 } from 'revolsys-angular-leaflet';
 @Component({
   selector: 'app-geographic-name-search',
-  template: `<leaflet-search-zoom label="Geographic Name"></leaflet-search-zoom>`
+  template: `<leaflet-search-zoom label="Geographic Name"></leaflet-search-zoom>`,
+  styles: [`
+:host {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+leaflet-search-zoom {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+  `]
 })
 export class GeographicNameSearchComponent implements AfterViewInit {
   @ViewChild(SearchZoomComponent)
@@ -39,7 +51,6 @@ export class GeographicNameSearchComponent implements AfterViewInit {
   }
 
   search(query): Observable<SearchResult[]> {
-    console.log(query);
     const params = new HttpParams() //
       .set('name', query) //
       .set('minScore', '0.7') //

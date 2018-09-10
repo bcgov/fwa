@@ -15,7 +15,6 @@ import {
 import * as L from 'leaflet';
 import {TiledMapLayer} from 'esri-leaflet';
 import {MapService} from 'revolsys-angular-leaflet';
-import {EmsStationService} from '../ems-station.service';
 import {RiverService} from '../river.service';
 
 @Component({
@@ -38,16 +37,10 @@ export class FwaMapComponent implements AfterViewInit {
     ['Higlighted Stream', 'line', 'legend-higlighted-stream'],
     ['Higlighted Stream (Upstream)', 'line', 'legend-higlighted-stream-upstream'],
     ['Higlighted Stream (Downstream)', 'line', 'legend-higlighted-stream-downstream'],
-    ['EMS Station', 'circle', 'legend-ems-station'],
-    ['Selected EMS Station', 'circle', 'legend-selected-ems-station'],
-    ['Selected EMS Station (Downstream)', 'circle', 'legend-selected-ems-station-downstream'],
-    ['Higlighted EMS Station', 'circle', 'legend-higlighted-ems-station'],
-    ['Higlighted EMS Station (Downstream)', 'circle', 'legend-higlighted-ems-station-downstream']
   ];
   constructor(
     private http: HttpClient,
     private riverService: RiverService,
-    private emsStationService: EmsStationService,
     private mapService: MapService
   ) {
   }
@@ -61,8 +54,6 @@ export class FwaMapComponent implements AfterViewInit {
     });
 
     this.riverService.init();
-    this.emsStationService.init();
-    //    this.tempLayersInit();
   }
 
   private tempLayersInit() {
