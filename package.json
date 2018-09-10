@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy-gh-pages": "ng build --prod --base-href '/fwa/'; angular-cli-ghpages",
-    "build-demo": "ng build --prod --base-href '/fwaDemo/'"
+    "build-demo": "ng build --prod --base-href '/fwa/'"
   },
   "private": true,
   "dependencies": {
