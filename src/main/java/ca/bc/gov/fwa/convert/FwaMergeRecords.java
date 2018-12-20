@@ -184,7 +184,7 @@ public class FwaMergeRecords implements FwaConstants {
       graphRecord.setValue(INTERSECT_IND, true);
 
       if (boundingBox != null) {
-        if (graphLine.intersects(boundingBox)) {
+        if (graphLine.intersectsBbox(boundingBox)) {
           final boolean covers = boundingBox.bboxCovers(graphLine);
           if (!covers) {
             graphRecord.setValue(CONTAINED_IND, false);
