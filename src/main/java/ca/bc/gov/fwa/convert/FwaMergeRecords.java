@@ -5,12 +5,13 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.jeometry.coordinatesystem.operation.CoordinatesOperation;
+import org.jeometry.coordinatesystem.operation.CoordinatesOperationPoint;
+
 import ca.bc.gov.fwa.FwaController;
 
 import com.revolsys.collection.map.IntHashMap;
 import com.revolsys.datatype.DataTypes;
-import com.revolsys.geometry.cs.projection.CoordinatesOperation;
-import com.revolsys.geometry.cs.projection.CoordinatesOperationPoint;
 import com.revolsys.geometry.graph.Edge;
 import com.revolsys.geometry.graph.RecordGraph;
 import com.revolsys.geometry.model.BoundingBox;
