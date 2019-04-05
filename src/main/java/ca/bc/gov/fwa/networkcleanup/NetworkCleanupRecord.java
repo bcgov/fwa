@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.jeometry.common.number.Doubles;
+
 import ca.bc.gov.fwa.convert.FwaConstants;
 
 import com.revolsys.datatype.DataTypes;
@@ -18,7 +20,6 @@ import com.revolsys.record.RecordState;
 import com.revolsys.record.schema.RecordDefinition;
 import com.revolsys.record.schema.RecordDefinitionBuilder;
 import com.revolsys.util.Debug;
-import com.revolsys.util.number.Doubles;
 
 public class NetworkCleanupRecord extends AbstractRecord implements FwaConstants {
 

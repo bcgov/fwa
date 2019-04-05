@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.jeometry.common.math.MathUtil;
 import org.jeometry.coordinatesystem.operation.CoordinatesOperation;
 import org.jeometry.coordinatesystem.operation.CoordinatesOperationPoint;
 
@@ -38,7 +39,6 @@ import com.revolsys.record.schema.RecordStore;
 import com.revolsys.spring.resource.PathResource;
 import com.revolsys.util.Debug;
 import com.revolsys.util.IntPair;
-import com.revolsys.util.MathUtil;
 import com.revolsys.value.DoubleValue;
 
 public class FwaMergeRecords implements FwaConstants {
