@@ -5,25 +5,26 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.jeometry.common.math.MathUtil;
+import org.jeometry.common.datatype.DataTypes;
+import org.jeometry.common.io.PathName;
 import org.jeometry.coordinatesystem.operation.CoordinatesOperation;
 import org.jeometry.coordinatesystem.operation.CoordinatesOperationPoint;
 
 import ca.bc.gov.fwa.FwaController;
 
 import com.revolsys.collection.map.IntHashMap;
-import com.revolsys.datatype.DataTypes;
 import com.revolsys.geometry.graph.Edge;
 import com.revolsys.geometry.graph.RecordGraph;
 import com.revolsys.geometry.model.BoundingBox;
 import com.revolsys.geometry.model.Geometry;
+import com.revolsys.geometry.model.GeometryDataTypes;
 import com.revolsys.geometry.model.GeometryFactory;
 import com.revolsys.geometry.model.LineString;
 import com.revolsys.geometry.model.Lineal;
 import com.revolsys.geometry.model.Point;
 import com.revolsys.geometry.model.coordinates.LineSegmentUtil;
 import com.revolsys.geometry.model.editor.LineStringEditor;
-import com.revolsys.io.PathName;
+import com.revolsys.geometry.util.Points;
 import com.revolsys.io.channels.ChannelWriter;
 import com.revolsys.parallel.process.ProcessNetwork;
 import com.revolsys.record.Record;
@@ -74,7 +75,7 @@ public class FwaMergeRecords implements FwaConstants {
       .addField(DOWNSTREAM_LENGTH, DataTypes.DOUBLE) //
       .addField(UPSTREAM_LENGTH, DataTypes.DOUBLE) //
       .addField(LENGTH_METRE, DataTypes.DOUBLE) //
-      .addField(DataTypes.LINE_STRING) //
+      .addField(GeometryDataTypes.LINE_STRING) //
       .setGeometryFactory(GEOMETRY_FACTORY)//
       .getRecordDefinition();
 
@@ -92,7 +93,7 @@ public class FwaMergeRecords implements FwaConstants {
       .addField(LENGTH_METRE, DataTypes.DOUBLE) //
       .addField(INTERSECT_IND, DataTypes.BOOLEAN) //
       .addField(CONTAINED_IND, DataTypes.BOOLEAN) //
-      .addField(DataTypes.LINE_STRING) //
+      .addField(GeometryDataTypes.LINE_STRING) //
       .setGeometryFactory(GEOMETRY_FACTORY)//
       .getRecordDefinition();
 
@@ -222,7 +223,7 @@ public class FwaMergeRecords implements FwaConstants {
           newLine.appendVertex(line.getX(0), line.getY(0));
           final DoubleValue segmentLength = new DoubleValue();
           line.forEachSegment((x1, y1, x2, y2) -> {
-            final double length = MathUtil.distance(x1, y1, x2, y2);
+            final double length = Points.distance(x1, y1, x2, y2);
             if (segmentLength.value + length > maxSegmentLength) {
               double offset = 0;
               do {

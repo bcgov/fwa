@@ -5,13 +5,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.jeometry.common.datatype.DataTypes;
 import org.jeometry.common.number.Doubles;
 
 import ca.bc.gov.fwa.convert.FwaConstants;
 
-import com.revolsys.datatype.DataTypes;
 import com.revolsys.geometry.graph.BinaryRoutePath;
 import com.revolsys.geometry.model.Geometry;
+import com.revolsys.geometry.model.GeometryDataTypes;
 import com.revolsys.geometry.model.LineString;
 import com.revolsys.geometry.model.Lineal;
 import com.revolsys.record.AbstractRecord;
@@ -48,7 +49,7 @@ public class NetworkCleanupRecord extends AbstractRecord implements FwaConstants
       .addField("downstreamLength", DataTypes.DOUBLE) //
       .addField("upstreamLength", DataTypes.DOUBLE) //
       .addField("routes", DataTypes.OBJECT) //
-      .addField("ring", DataTypes.LINE_STRING) //
+      .addField("ring", GeometryDataTypes.LINE_STRING) //
       .setGeometryFactory(GEOMETRY_FACTORY) //
       .getRecordDefinition();
 

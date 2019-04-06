@@ -1,7 +1,8 @@
 package ca.bc.gov.fwa.convert;
 
+import org.jeometry.common.io.PathName;
+
 import com.revolsys.geometry.model.GeometryFactory;
-import com.revolsys.io.PathName;
 
 public interface FwaConstants {
   static String BLUE_LINE_KEY = "BLUE_LINE_KEY";

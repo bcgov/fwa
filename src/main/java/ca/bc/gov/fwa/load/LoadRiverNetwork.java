@@ -2,11 +2,13 @@ package ca.bc.gov.fwa.load;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.jeometry.common.date.Dates;
+import org.jeometry.common.io.PathName;
+
 import ca.bc.gov.fwa.FwaController;
 import ca.bc.gov.fwa.convert.FwaConstants;
 
 import com.revolsys.geometry.model.LineString;
-import com.revolsys.io.PathName;
 import com.revolsys.parallel.channel.Channel;
 import com.revolsys.parallel.channel.store.Buffer;
 import com.revolsys.parallel.process.ProcessNetwork;
@@ -17,7 +19,6 @@ import com.revolsys.record.query.Query;
 import com.revolsys.record.schema.RecordStore;
 import com.revolsys.record.schema.RecordStoreSchema;
 import com.revolsys.transaction.Transaction;
-import com.revolsys.util.Dates;
 
 public class LoadRiverNetwork implements FwaConstants {
 

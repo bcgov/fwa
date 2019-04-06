@@ -7,11 +7,13 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.jeometry.common.date.Dates;
+import org.jeometry.common.io.PathName;
+
 import ca.bc.gov.fwa.FwaController;
 
 import com.revolsys.geometry.model.GeometryFactory;
 import com.revolsys.geometry.model.LineString;
-import com.revolsys.io.PathName;
 import com.revolsys.record.Record;
 import com.revolsys.record.io.RecordReader;
 import com.revolsys.record.io.RecordWriter;
@@ -21,7 +23,6 @@ import com.revolsys.record.schema.RecordDefinition;
 import com.revolsys.record.schema.RecordDefinitionBuilder;
 import com.revolsys.record.schema.RecordStore;
 import com.revolsys.record.schema.RecordStoreSchema;
-import com.revolsys.util.Dates;
 
 public class FwaToTsv implements FwaConstants {
 

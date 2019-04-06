@@ -7,20 +7,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.jeometry.common.datatype.DataTypes;
+import org.jeometry.common.date.Dates;
+import org.jeometry.common.io.PathName;
+
 import com.revolsys.collection.map.IntHashMap;
 import com.revolsys.collection.map.Maps;
-import com.revolsys.datatype.DataTypes;
 import com.revolsys.geometry.model.BoundingBox;
+import com.revolsys.geometry.model.GeometryDataTypes;
 import com.revolsys.geometry.model.GeometryFactory;
 import com.revolsys.geometry.model.LineString;
-import com.revolsys.io.PathName;
 import com.revolsys.record.Record;
 import com.revolsys.record.io.RecordReader;
 import com.revolsys.record.io.RecordWriter;
 import com.revolsys.record.io.format.csv.CsvRecordWriter;
 import com.revolsys.record.schema.RecordDefinition;
 import com.revolsys.record.schema.RecordDefinitionBuilder;
-import com.revolsys.util.Dates;
 import com.revolsys.util.count.LabelCountMap;
 
 public class FwaTiles implements FwaConstants {
@@ -45,7 +47,7 @@ public class FwaTiles implements FwaConstants {
       .addField(LINEAR_FEATURE_ID, DataTypes.INT) //
       .addField(WATERSHED_CODE, DataTypes.STRING, 143) //
       .addField(LOCAL_WATERSHED_CODE, DataTypes.STRING, 143) //
-      .addField(DataTypes.LINE_STRING) //
+      .addField(GeometryDataTypes.LINE_STRING) //
       .setGeometryFactory(GEOMETRY_FACTORY)//
       .getRecordDefinition();
 

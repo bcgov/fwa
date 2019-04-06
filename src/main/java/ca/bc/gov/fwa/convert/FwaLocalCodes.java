@@ -4,17 +4,20 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.jeometry.common.datatype.DataTypes;
+import org.jeometry.common.date.Dates;
+import org.jeometry.common.io.PathName;
+
 import ca.bc.gov.fwa.FwaController;
 
-import com.revolsys.datatype.DataTypes;
 import com.revolsys.geometry.graph.Edge;
 import com.revolsys.geometry.graph.RecordGraph;
+import com.revolsys.geometry.model.GeometryDataTypes;
 import com.revolsys.geometry.model.GeometryFactory;
 import com.revolsys.geometry.model.LineString;
 import com.revolsys.gis.esri.gdb.file.FileGdbRecordStore;
 import com.revolsys.gis.esri.gdb.file.FileGdbRecordStoreFactory;
 import com.revolsys.io.FileUtil;
-import com.revolsys.io.PathName;
 import com.revolsys.record.Record;
 import com.revolsys.record.io.RecordReader;
 import com.revolsys.record.io.RecordWriter;
@@ -23,7 +26,6 @@ import com.revolsys.record.schema.RecordDefinition;
 import com.revolsys.record.schema.RecordDefinitionBuilder;
 import com.revolsys.record.schema.RecordStore;
 import com.revolsys.transaction.Transaction;
-import com.revolsys.util.Dates;
 
 public class FwaLocalCodes {
   private static final String FWA_STREAM_NETWORK = "/FWA_STREAM_NETWORK";
@@ -76,7 +78,7 @@ public class FwaLocalCodes {
         .addField(WATERSHED_CODE, DataTypes.STRING, 143) //
         .addField("FROM_LOCAL_CODE", DataTypes.INT) //
         .addField("TO_LOCAL_CODE", DataTypes.INT) //
-        .addField(DataTypes.LINE_STRING) //
+        .addField(GeometryDataTypes.LINE_STRING) //
         .setGeometryFactory(GEOMETRY_FACTORY)//
         .getRecordDefinition();
     this.streamRecordDefinition = recordStore.getRecordDefinition(streamRecordDefinition);
