@@ -24,6 +24,7 @@ import com.revolsys.record.io.format.csv.CsvRecordWriter;
 import com.revolsys.record.schema.RecordDefinition;
 import com.revolsys.record.schema.RecordDefinitionBuilder;
 import com.revolsys.util.count.LabelCountMap;
+import com.revolsys.util.count.LabelCounters;
 
 public class FwaTiles implements FwaConstants {
   private static final int COORDINATE_SYSTEM_ID = 3857;
@@ -131,7 +132,7 @@ public class FwaTiles implements FwaConstants {
   private void readRecords() {
     long startTime = System.currentTimeMillis();
     final AtomicInteger count = new AtomicInteger();
-    final LabelCountMap counts = new LabelCountMap();
+    final LabelCounters counts = new LabelCountMap();
     try (
       RecordReader reader = RecordReader.newRecordReader(FwaToTsv.FWA_STREAM_NETWORK_TSV)) {
       for (final Record record : reader) {
