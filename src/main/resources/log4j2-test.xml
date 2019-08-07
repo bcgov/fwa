@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration
+  strict="true"
+  name="BCDEM"
+>
+  <Appenders>
+    <Appender
+      type="Console"
+      name="Console"
+    >
+      <Layout
+        type="PatternLayout"
+        pattern="%d\t%p\t%c\t%m%n" />
+    </Appender>
+  </Appenders>
+
+  <Loggers>
+
+    <Logger
+      name="ca.bc.gov.bcdem"
+      level="INFO" />
+
+    <Logger
+      name="com.revolsys.gis.tools"
+      level="INFO" />
+
+    <Logger
+      name="com.revolsys.gis.parallel"
+      level="INFO" />
+
+    <Logger
+      name="com.revolsys.parallel.tools"
+      level="INFO" />
+
+    <Logger
+      name="com.revolsys.gis.io.LabelCountMap"
+      level="INFO" />
+
+    <Logger
+      name="org.docx4j.model.properties"
+      level="FATAL" />
+
+    <Logger
+      name="org.docx4j"
+      level="FATAL" />
+
+    <Root level="ERROR">
+      <AppenderRef ref="Console" />
+    </Root>
+
+  </Loggers>
+
+</Configuration>
