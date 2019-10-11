@@ -38,7 +38,7 @@ public class LoadRiverNetwork implements FwaConstants {
   }
 
   private RecordStore getStreamNetworkRecordStore() {
-    return FwaController.getFileRecordStore("/Data/FWA/FWA_STREAM_NETWORKS_SP.gdb");
+    return FwaController.getFileRecordStore("/opt/data/FWA/FWA_STREAM_NETWORKS_SP.gdb");
   }
 
   private void run() {

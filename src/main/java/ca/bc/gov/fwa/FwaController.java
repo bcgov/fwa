@@ -6,6 +6,14 @@ import com.revolsys.record.schema.RecordStore;
 
 public class FwaController {
 
+  public static final String FWA_ROUTES_SP = "/WHSE_BASEMAPPING/FWA_ROUTES_SP";
+
+  public static final String FWA_WATERSHED_CODE = "FWA_WATERSHED_CODE";
+
+  public static RecordStore getBcgwRecordStore() {
+    return getRecordStore("jdbc:postgresql://localhost/bcgw", "pxaustin", "Tdnmatm1");
+  }
+
   public static RecordStore getFileRecordStore(final String file) {
     final RecordStore recordStore = RecordStore.newRecordStore(file);
     recordStore.initialize();
@@ -13,11 +21,11 @@ public class FwaController {
   }
 
   public static RecordStore getFwaFgdbRecordStore() {
-    return getFileRecordStore("/Data/FWA/FWA_BC.gdb");
+    return getFileRecordStore("/opt/data/FWA/FWA_BC.gdb");
   }
 
-  public static RecordStore getBcgwRecordStore() {
-    return getRecordStore("jdbc:postgresql://localhost/bcgw", "pxaustin", "Tdnmatm1");
+  public static RecordStore getFwaRecordStore() {
+    return getRecordStore("jdbc:postgresql://localhost/fwa", "pxaustin", "Tdnmatm1");
   }
 
   public static RecordStore getRecordStore(final String url, final String user,
@@ -30,12 +38,6 @@ public class FwaController {
     final RecordStore recordStore = RecordStore.newRecordStore(properties);
     recordStore.initialize();
     return recordStore;
-  }
-
-  public static final String FWA_ROUTES_SP = "/WHSE_BASEMAPPING/FWA_ROUTES_SP";
-  public static final String FWA_WATERSHED_CODE = "FWA_WATERSHED_CODE";
-  public static RecordStore getFwaRecordStore() {
-    return getRecordStore("jdbc:postgresql://localhost/fwa", "pxaustin", "Tdnmatm1");
   }
 
 }

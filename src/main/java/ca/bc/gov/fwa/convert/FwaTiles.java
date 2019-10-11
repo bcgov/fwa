@@ -53,7 +53,7 @@ public class FwaTiles implements FwaConstants {
       .getRecordDefinition();
 
   private final Path fwaPath = Paths
-    .get("/Data/FWA/tiles/" + GEOMETRY_FACTORY.getHorizontalCoordinateSystemId());
+    .get("/opt/data/FWA/tiles/" + GEOMETRY_FACTORY.getHorizontalCoordinateSystemId());
 
   public void closeWriters() {
     for (final IntHashMap<IntHashMap<CsvRecordWriter>> writersByTileSize : this.writersByTileSizeYAndX

@@ -26,7 +26,7 @@ import com.revolsys.record.schema.RecordStoreSchema;
 
 public class FwaToTsv implements FwaConstants {
 
-  static String FWA_STREAM_NETWORK_TSV = "/DATA/FWA/FWA_STREAM_NETWORK.tsv";
+  static String FWA_STREAM_NETWORK_TSV = "/opt/dATA/FWA/FWA_STREAM_NETWORK.tsv";
 
   private static final GeometryFactory GEOMETRY_FACTORY = GeometryFactory.fixed2d(3005, 1000.0,
     1000.0);
@@ -48,7 +48,7 @@ public class FwaToTsv implements FwaConstants {
   private final Map<Integer, String> nameById = new TreeMap<>();
 
   private RecordStore getStreamNetworkRecordStore() {
-    return FwaController.getFileRecordStore("/Data/FWA/FWA_STREAM_NETWORKS_SP.gdb");
+    return FwaController.getFileRecordStore("/opt/data/FWA/FWA_STREAM_NETWORKS_SP.gdb");
   }
 
   private void readRecords() {
@@ -122,7 +122,7 @@ public class FwaToTsv implements FwaConstants {
     }
     this.writer.close();
     try (
-      TsvWriter writer = Tsv.plainWriter("/Data/FWA/GNIS_NAMES.tsv")) {
+      TsvWriter writer = Tsv.plainWriter("/opt/data/FWA/GNIS_NAMES.tsv")) {
       writer.write("ID", "NAME");
       for (final Entry<Integer, String> entry : this.nameById.entrySet()) {
         writer.write(entry.getKey(), entry.getValue());

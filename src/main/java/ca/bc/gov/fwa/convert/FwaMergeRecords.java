@@ -48,7 +48,7 @@ public class FwaMergeRecords implements FwaConstants {
   private static final String CONTAINED_IND = "CONTAINED_IND";
 
   private static final String PATH = //
-      // "/Data/FWA/tiles/"//
+      // "/opt/data/FWA/tiles/"//
       "/Volumes/bcgovdata/fwa/tiles/" //
   ;
 

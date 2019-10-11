@@ -60,7 +60,7 @@ public class FwaRouteToNetwork {
 
   private FileGdbRecordStore newStreamNetworkRecordStore() {
 
-    final File file = new File("/Data/FWA/FWA_STREAM_NETWORK.gdb");
+    final File file = new File("/opt/data/FWA/FWA_STREAM_NETWORK.gdb");
     FileUtil.deleteDirectory(file);
     final FileGdbRecordStore recordStore = FileGdbRecordStoreFactory.newRecordStore(file);
 

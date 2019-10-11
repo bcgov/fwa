@@ -62,7 +62,7 @@ public class FwaLocalCodes {
 
   private FileGdbRecordStore newStreamLocalNetworkRecordStore() {
 
-    final File file = new File("/Data/FWA/FWA_STREAM_NETWORK_LOCAL.gdb");
+    final File file = new File("/opt/data/FWA/FWA_STREAM_NETWORK_LOCAL.gdb");
     FileUtil.deleteDirectory(file);
     final FileGdbRecordStore recordStore = FileGdbRecordStoreFactory.newRecordStore(file);
 
@@ -87,7 +87,7 @@ public class FwaLocalCodes {
   }
 
   private FileGdbRecordStore newStreamNetworkRecordStore() {
-    final File file = new File("/Data/FWA/FWA_STREAM_NETWORK.gdb");
+    final File file = new File("/opt/data/FWA/FWA_STREAM_NETWORK.gdb");
     final FileGdbRecordStore recordStore = FileGdbRecordStoreFactory.newRecordStore(file);
     recordStore.initialize();
     return recordStore;
